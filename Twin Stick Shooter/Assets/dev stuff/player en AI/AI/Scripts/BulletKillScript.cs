@@ -12,6 +12,11 @@ public class BulletKillScript : MonoBehaviour {
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
     }
     // Use this for initialization
     void Start () {
