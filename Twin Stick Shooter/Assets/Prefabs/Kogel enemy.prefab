@@ -36,13 +36,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4327556671460058}
-  - component: {fileID: 95285073946224904}
   - component: {fileID: 54818910254463238}
   - component: {fileID: 96976191897608916}
-  - component: {fileID: 114381443022609580}
   - component: {fileID: 65822462954431540}
+  - component: {fileID: 114836619388553162}
   m_Layer: 0
-  m_Name: Kogel
+  m_Name: Kogel enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,23 +214,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017807415, y: 0.021090517, z: 0.041301638}
   m_Center: {x: -0.0003090745, y: 0.0004943045, z: -0.0025050398}
---- !u!95 &95285073946224904
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1674800261120706}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3a897fd6d4ff927499cc411e4b4e014a, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!96 &96976191897608916
 TrailRenderer:
   serializedVersion: 2
@@ -325,7 +307,7 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
---- !u!114 &114381443022609580
+--- !u!114 &114836619388553162
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -333,6 +315,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1674800261120706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d0f215551887a4b9537b7fd3992d30, type: 3}
+  m_Script: {fileID: 11500000, guid: 33ac6910c0ea35d46a3cbdea1a4ebdb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
