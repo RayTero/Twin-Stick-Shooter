@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  healthtransform: {fileID: 0}
   Kogel: {fileID: 1674800261120706, guid: ccd6a2f390fba394bb75e7f085107e46, type: 2}
   Bullet_Emitter: {fileID: 236326609}
   Bullet_force: 10000
@@ -323,7 +324,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 236326609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.76}
+  m_LocalPosition: {x: 0.023, y: 0.029, z: 1.598}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 78937344}

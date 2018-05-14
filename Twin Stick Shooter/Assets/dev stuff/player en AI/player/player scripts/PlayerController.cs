@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     [SerializeField]
     private float moveSpeed;
     private Rigidbody PlayerRigid;
 
+    // player health 
+    [SerializeField]
+    private Stat health;
+   
+
+    //player input
     private Vector3 MoveInput;
     private Vector3 MoveVelocity;
 
+    //camera
     private Camera MainCamera;
 
     [SerializeField]
@@ -28,15 +37,30 @@ public class PlayerController : MonoBehaviour {
     bool ShotgunActive;
     [SerializeField]
     bool SubMachineGunActive;
+
+    
+    
 	void Start ()
     {
         PlayerRigid = GetComponent<Rigidbody>();
         MainCamera = FindObjectOfType<Camera>();
+        health.initialize();    
+
 	}
-	
-	// Update is called once per frame
-	void Update ()
+    
+
+    // Update is called once per frame
+    void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            health.CurrentHealth -= 10;
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            health.CurrentHealth += 10;
+        }
+       
         MoveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         MoveVelocity = MoveInput * moveSpeed;
 
@@ -53,6 +77,8 @@ public class PlayerController : MonoBehaviour {
             Bullet_Emitter.transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
         print(timer);
+        
+        
     }
 
     private void FixedUpdate()
@@ -123,8 +149,10 @@ public class PlayerController : MonoBehaviour {
                     Destroy(Temporary_Bullet_Handler, 5f);
                     timer = 0;
                 }
-
             }
         }
     }
+   
+    
+
 }
