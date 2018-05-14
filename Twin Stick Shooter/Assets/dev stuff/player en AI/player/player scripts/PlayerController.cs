@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 MoveInput;
     private Vector3 MoveVelocity;
 
+    [SerializeField]
     private Camera MainCamera;
 
     [SerializeField]
@@ -42,12 +43,14 @@ public class PlayerController : MonoBehaviour {
 	void Start ()
     {
         PlayerRigid = GetComponent<Rigidbody>();
-        MainCamera = FindObjectOfType<Camera>();
+        //MainCamera = FindObjectOfType<Camera>();
 
         PistolAmmo = 12;
         MachineGunAmmo = 30;
 
-        Cursor.visible = false;
+        //Cursor.visible = false;
+
+        Time.timeScale = 1.0f;
 	}
 	
 	// Update is called once per frame
@@ -71,14 +74,17 @@ public class PlayerController : MonoBehaviour {
             ShotgunActive = true;
             MachineGunActive = false;
         }
-
+        //infinite ammo
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            PistolAmmo = int.MaxValue;
+            MachineGunAmmo = int.MaxValue;
+        }
 
         MoveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         MoveVelocity = MoveInput * moveSpeed;
 
         Ray CameraRay = MainCamera.ScreenPointToRay(Input.mousePosition);
-
-
 
         Plane worldPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLength;
@@ -176,7 +182,7 @@ public class PlayerController : MonoBehaviour {
         GameObject Temporary_Bullet_Handler;
         Temporary_Bullet_Handler = Instantiate(Kogel, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
 
-        Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 90);
+        Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 0);
 
         Rigidbody Temporary_RigidBody;
         Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();

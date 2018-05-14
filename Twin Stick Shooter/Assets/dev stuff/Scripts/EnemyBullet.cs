@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyBullet : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class EnemyBullet : MonoBehaviour {
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            SceneManager.LoadScene("StartScreen (proto)");
         }
     }
     // Use this for initialization

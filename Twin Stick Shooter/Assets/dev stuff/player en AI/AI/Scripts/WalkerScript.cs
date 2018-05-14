@@ -26,6 +26,7 @@ public class WalkerScript : MonoBehaviour
     void Start()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
+        m_NavMeshAgent.SetDestination(m_StartPoint.position);
     }
 
     private float Distance(Vector3 objectA, Vector3 objectb)
@@ -34,10 +35,6 @@ public class WalkerScript : MonoBehaviour
     }
     void Update()
     {
-        if (WalkerStart == true)
-        {
-            m_NavMeshAgent.SetDestination(m_StartPoint.position);
-        }
         if (WalkerDuring == true)
         {
             if (timer >= 10)
@@ -48,6 +45,7 @@ public class WalkerScript : MonoBehaviour
             }
         }
 
+        //field of view dingen
         Vector3 targetDir = m_Target.position - transform.position;
 
         float angleToPlayer = (Vector3.Angle(targetDir, transform.forward));
@@ -55,7 +53,7 @@ public class WalkerScript : MonoBehaviour
 
         //&& angleToPlayer >= -60 && angleToPlayer <= 60
         //Debug.Log(m_RayHit.collider.name);
-            Debug.DrawLine(transform.position, m_RayHit.point, Color.green);
+            //Debug.DrawLine(transform.position, m_RayHit.point, Color.green);
         
     }
     private void FixedUpdate()
@@ -66,7 +64,6 @@ public class WalkerScript : MonoBehaviour
             if (m_RayHit.collider.tag == "Player")
             {
                 m_NavMeshAgent.SetDestination(m_Target.position);
-                WalkerStart = false;
                 if (Distance(transform.position, m_Target.position) < 15f)
                 {
                     timer += 1 * Time.deltaTime;

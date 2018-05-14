@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/scenes/StartScreen (proto).unity
+    guid: 16d833230359d1447a046f2218cf3a2b
+  - enabled: 1
+    path: Assets/scenes/Jelle Player.unity
+    guid: 4d0b0a63f431536499daa8f2999ea5bc

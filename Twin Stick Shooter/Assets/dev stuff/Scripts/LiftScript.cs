@@ -9,6 +9,11 @@ public class LiftScript : MonoBehaviour {
     [SerializeField]
     private GameObject lift;
 
+    [SerializeField]
+    private Camera MainCamera;
+    [SerializeField]
+    private Camera LiftCamera;
+
     Vector3 speed;
     bool OnLift;
     private void OnCollisionStay(Collision other)
@@ -17,6 +22,8 @@ public class LiftScript : MonoBehaviour {
         {
             Speler.transform.SetParent(transform);
             ActivateLift();
+            MainCamera.enabled = false;
+            LiftCamera.enabled = true;
         }
     }
     private void OnCollisionExit(Collision other)
@@ -25,6 +32,8 @@ public class LiftScript : MonoBehaviour {
         {
             Speler.transform.parent = null;
             OnLift = false;
+            MainCamera.enabled = true;
+            LiftCamera.enabled = false;
         }
     }
     // Use this for initialization
